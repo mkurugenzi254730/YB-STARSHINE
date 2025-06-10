@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YB STARSHINE</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header, footer {
+      background-color: #222;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1em;
+      padding: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 50px;
+    }
+
+    .search-bar {
+      margin-top: 1em;
+    }
+
+    main {
+      padding: 1em;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1em;
+    }
+
+    .product-card {
+      border: 1px solid #ccc;
+      padding: 1em;
+      text-align: center;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 0.5em 1em;
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 1em;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0d6efd;
+    }
+  </style>
+
+  <script>
+    // Redirect to checkout page directly
+    function confirmBuy(productName) {
+      window.location.href = 'checkout.html';
+    }
+
+    // Search Functionality
+    function filterProducts() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const products = document.querySelectorAll('.product-card');
+      
+      products.forEach(product => {
+        const title = product.querySelector('h3').textContent.toLowerCase();
+        const description = product.querySelector('p:nth-of-type(2)').textContent.toLowerCase();
+
+        if (title.includes(searchInput) || description.includes(searchInput)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="https://via.placeholder.com/150" alt="YB STARSHINE Logo" />
+      </div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <div class="search-bar">
+        <input type="search" id="searchInput" onkeyup="filterProducts()" placeholder="Search products..." />
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="featured-products">
+      <h2>Featured Products</h2>
+      <div class="product-grid" id="productGrid">
+
+        <!-- Product cards go here (keep the same) -->
+        <!-- Example: -->
+        <div class="product-card">
+          <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg" alt="iPhone 11" />
+          <h3>iPhone 11 (Refurbished)</h3>
+          <p>KES 20,000</p>
+          <p>64GB, Dual 12MP Cameras</p>
+          <button onclick="confirmBuy('iPhone 11 (Refurbished)')">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12.jpg" alt="iPhone 12" />
+          <h3>iPhone 12</h3>
+          <p>KES 35,000</p>
+          <p>64GB, Super Retina XDR</p>
+          <button onclick="confirmBuy('iPhone 12')">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg" alt="iPhone 13" />
+          <h3>iPhone 13</h3>
+          <p>KES 40,000</p>
+          <p>64GB, Cinematic Mode</p>
+          <button onclick="confirmBuy('iPhone 13')">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro.jpg" alt="iPhone 14 Pro" />
+          <h3>iPhone 14 Pro</h3>
+          <p>KES 65,000</p>
+          <p>128GB, ProMotion Display</p>
+          <button onclick="confirmBuy('iPhone 14 Pro')">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg" alt="iPhone 13 Pro Max" />
+          <h3>iPhone 13 Pro Max</h3>
+          <p>KES 70,000</p>
+          <p>256GB, ProMotion, LiDAR Scanner</p>
+          <button onclick="confirmBuy('iPhone 13 Pro Max')">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12-mini.jpg" alt="iPhone 12 Mini" />
+          <h3>iPhone 12 Mini</h3>
+          <p>KES 28,000</p>
+          <p>64GB, Compact & Powerful</p>
+          <button onclick="confirmBuy('iPhone 12 Mini')">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14.jpg" alt="iPhone 14" />
+          <h3>iPhone 14</h3>
+          <p>KES 55,000</p>
+          <p>128GB, Advanced Dual Cameras</p>
+          <button onclick="confirmBuy('iPhone 14')">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-plus.jpg" alt="iPhone 14 Plus" />
+          <h3>iPhone 14 Plus</h3>
+          <p>KES 60,000</p>
+          <p>128GB, Large Display</p>
+          <button onclick="confirmBuy('iPhone 14 Plus')">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg" alt="iPhone 11" />
+            <h3>iPhone 11 (Refurbished)</h3>
+            <p>KES 34,900</p>
+            <p>128GB, Dual 12MP Cameras</p>
+            <button onclick="confirmBuy('iPhone 11 (Refurbished)')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg" alt="iPhone 11" />
+            <h3>iPhone 11 (Refurbished)</h3>
+            <p>KES 54,900</p>
+            <p>256GB, Dual 12MP Cameras</p>
+            <button onclick="confirmBuy('iPhone 11 (Refurbished)')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12.jpg" alt="iPhone 12" />
+            <h3>iPhone 12</h3>
+            <p>KES 35,000</p>
+            <p>64GB, Super Retina XDR</p>
+            <button onclick="confirmBuy('iPhone 12')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12.jpg" alt="iPhone 12" />
+            <h3>iPhone 12</h3>
+            <p>KES 55,000</p>
+            <p>128GB, Super Retina XDR</p>
+            <button onclick="confirmBuy('iPhone 12')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12.jpg" alt="iPhone 12" />
+            <h3>iPhone 12</h3>
+            <p>KES 75,000</p>
+            <p>256GB, Super Retina XDR</p>
+            <button onclick="confirmBuy('iPhone 12')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg" alt="iPhone 13" />
+            <h3>iPhone 13</h3>
+            <p>KES 40,000</p>
+            <p>64GB, Cinematic Mode</p>
+            <button onclick="confirmBuy('iPhone 13')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg" alt="iPhone 13" />
+            <h3>iPhone 13</h3>
+            <p>KES 65,999</p>
+            <p>128GB, Cinematic Mode</p>
+            <button onclick="confirmBuy('iPhone 13')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg" alt="iPhone 13" />
+            <h3>iPhone 13</h3>
+            <p>KES 95,999</p>
+            <p>256GB, Cinematic Mode</p>
+            <button onclick="confirmBuy('iPhone 13')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro.jpg" alt="iPhone 14 Pro" />
+            <h3>iPhone 14 Pro</h3>
+            <p>KES 64,999</p>
+            <p>128GB, ProMotion Display</p>
+            <button onclick="confirmBuy('iPhone 14 Pro')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg" alt="iPhone 13 Pro Max" />
+            <h3>iPhone 13 Pro Max</h3>
+            <p>KES 69,999</p>
+            <p>128GB, ProMotion, LiDAR Scanner</p>
+            <button onclick="confirmBuy('iPhone 13 Pro Max')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg" alt="iPhone 13 Pro Max" />
+            <h3>iPhone 13 Pro Max</h3>
+            <p>KES 70,000</p>
+            <p>256GB, ProMotion, LiDAR Scanner</p>
+            <button onclick="confirmBuy('iPhone 13 Pro Max')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12-mini.jpg" alt="iPhone 12 Mini" />
+            <h3>iPhone 12 Mini</h3>
+            <p>KES 28,000</p>
+            <p>64GB, Compact & Powerful</p>
+            <button onclick="confirmBuy('iPhone 12 Mini')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12-mini.jpg" alt="iPhone 12 Mini" />
+            <h3>iPhone 12 Mini</h3>
+            <p>KES 35,000</p>
+            <p>128GB, Compact & Powerful</p>
+            <button onclick="confirmBuy('iPhone 12 Mini')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14.jpg" alt="iPhone 14" />
+            <h3>iPhone 14</h3>
+            <p>KES 55,000</p>
+            <p>128GB, Advanced Dual Cameras</p>
+            <button onclick="confirmBuy('iPhone 14')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14.jpg" alt="iPhone 14" />
+            <h3>iPhone 14</h3>
+            <p>KES 105,000</p>
+            <p>256GB, Advanced Dual Cameras</p>
+            <button onclick="confirmBuy('iPhone 14')">Buy Now</button>
+          </div>
+  
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-plus.jpg" alt="iPhone 14 Plus" />
+            <h3>iPhone 14 Plus</h3>
+            <p>KES 60,000</p>
+            <p>128GB, Large Display</p>
+            <button onclick="confirmBuy('iPhone 14 Plus')">Buy Now</button>
+          </div>
+          <div class="product-card">
+            <img src="https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-plus.jpg" alt="iPhone 14 Plus" />
+            <h3>iPhone 14 Plus</h3>
+            <p>KES 120,000</p>
+            <p>256GB, Large Display</p>
+            <button onclick="confirmBuy('iPhone 14 Plus')">Buy Now</button>
+          </div>
+          
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 YB STARSHINE. All rights reserved.</p>
+  </footer>
+</body>
+</html>
